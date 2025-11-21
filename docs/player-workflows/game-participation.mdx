@@ -1,0 +1,267 @@
+---
+title: Game Participation
+description: How players can discover, join, and manage game attendance
+---
+
+# Game Participation
+
+Learn how to discover, join, and manage your participation in soccer games.
+
+## Discovering Games
+
+Games can be found in several places:
+
+<CardGroup cols={2}>
+  <Card title="Homepage" icon="home">
+    Browse all upcoming games across all groups
+  </Card>
+  <Card title="Group Pages" icon="users">
+    View games specific to a particular group
+  </Card>
+  <Card title="Games Page" icon="gamepad">
+    Dedicated page listing all available games
+  </Card>
+  <Card title="Profile" icon="user">
+    View your personal game history and upcoming games
+  </Card>
+</CardGroup>
+
+## Game Details
+
+Each game card displays:
+
+<CardGroup cols={2}>
+  <Card title="Date & Time" icon="calendar">
+    When the game is scheduled (formatted as "MMM DD" on cards, full date on detail page)
+  </Card>
+  <Card title="Location" icon="map-pin">
+    Where the game will be played (city shown on cards, full address on detail page)
+  </Card>
+  <Card title="Price" icon="dollar-sign">
+    Cost to join the game (displayed as "$XX" on cards)
+  </Card>
+  <Card title="Capacity" icon="users">
+    Shows available spots vs total capacity (e.g., "5 spots left" or "Full")
+  </Card>
+  <Card title="Attendees" icon="user-group">
+    Up to 24 player avatars displayed on group pages (3 rows)
+  </Card>
+  <Card title="Duration" icon="clock">
+    How long the game will last (e.g., "2h" for 2 hours)
+  </Card>
+</CardGroup>
+
+### Game Status Indicators
+
+Games can show different states:
+
+- **Available**: Green "Join Game" button - spots available
+- **Full**: "Join Waitlist" button - no spots available
+- **Locked**: Lock icon with tooltip - season signup deadline hasn't passed (for season games)
+- **Attending**: Shows your avatar in the attendee list
+
+## Joining a Game
+
+<Steps>
+  <Step title="View Game Details">
+    Click on any game card to navigate to the game detail page. You'll see:
+    - Full game information
+    - Complete attendee list with avatars
+    - Map showing game location
+    - Group information
+    - Teams (if organizer has made them visible)
+  </Step>
+  <Step title="Check Availability">
+    Look for the capacity indicator:
+    - **Available spots**: Shows "X spots left"
+    - **Full**: Shows "Full" and displays waitlist option
+    - **Season game locked**: Shows lock icon if season signup deadline hasn't passed
+  </Step>
+  <Step title="Proceed to Checkout">
+    Click "Join Game" button to proceed to Stripe checkout. You'll be redirected to Stripe's secure payment page.
+  </Step>
+  <Step title="Complete Payment">
+    Enter your payment details (card number, expiry, CVC) and complete the purchase. Stripe handles all payment processing securely.
+  </Step>
+  <Step title="Confirmation">
+    After successful payment:
+    - You'll be redirected to a success page
+    - You'll receive a confirmation email with game details
+    - Your avatar will appear in the game's attendee list
+    - You'll be marked as "attending" by default
+  </Step>
+</Steps>
+
+<Info>
+Payment is processed securely through Stripe. Esooo never stores your card information - all payment data is handled by Stripe's secure infrastructure.
+</Info>
+
+## Managing Attendance
+
+After joining a game, you can manage your attendance status:
+
+### Mark as Attending
+- Default status after joining
+- Your avatar appears in the attendee list
+- You'll receive reminder emails before the game
+
+### Mark as Not Attending
+- Click the attendance toggle on the game page
+- Your spot becomes available for waitlist players
+- You can change back to attending if spots are still available
+
+<Warning>
+You cannot mark attendance for games that have already occurred. The system uses timezone-aware validation to prevent this.
+</Warning>
+
+## Waitlist
+
+When a game is full, you can join the waitlist to be notified when a spot becomes available.
+
+### Joining the Waitlist
+
+<Steps>
+  <Step title="Check Game Status">
+    Navigate to a game page. If the game shows "Full" instead of available spots, the waitlist option will be available.
+  </Step>
+  <Step title="Join Waitlist">
+    Click "Join Waitlist" button on the game page. You'll be added to the waitlist immediately.
+  </Step>
+  <Step title="Confirmation">
+    You'll see a confirmation that you've been added to the waitlist. Your position in the queue will be displayed.
+  </Step>
+</Steps>
+
+<Info>
+Joining the waitlist is free and doesn't require payment. You'll only be charged if you're promoted and accept the spot.
+</Info>
+
+### Waitlist Position
+
+Your position in the waitlist determines when you'll be offered a spot:
+
+- **First in Line**: You'll be the first to be promoted when a spot opens
+- **Queue Order**: Waitlist positions are based on when you joined (first come, first served)
+- **Position Display**: Your current position is shown on the game page
+
+<Info>
+Waitlist positions are automatically managed. You don't need to check back constantly - you'll be notified via email when promoted.
+</Info>
+
+### Automatic Promotion
+
+When a spot becomes available, the system automatically promotes waitlist players:
+
+<Steps>
+  <Step title="Spot Opens">
+    A spot becomes available when:
+    - An attendee marks themselves as "not attending"
+    - An attendee cancels their spot
+    - Organizer increases game capacity
+  </Step>
+  <Step title="Automatic Promotion">
+    The first player on the waitlist is automatically promoted to fill the spot.
+  </Step>
+  <Step title="Email Notification">
+    You'll receive an email notification that a spot is available for you.
+  </Step>
+  <Step title="Complete Purchase">
+    Click the link in the email to complete your purchase through Stripe checkout.
+  </Step>
+  <Step title="Confirmation">
+    After payment, you'll be added to the attendee list and marked as "attending".
+  </Step>
+</Steps>
+
+<Warning>
+You have a limited time to complete your purchase after being promoted. If you don't complete payment within the time window, the spot may be offered to the next person on the waitlist.
+</Warning>
+
+### Manual Promotion by Organizers
+
+Organizers can also manually promote waitlist players:
+
+- **Organizer Choice**: Organizers may promote specific players based on their preferences
+- **Capacity Increase**: When organizers increase game capacity, waitlist players are automatically promoted
+- **Fair Process**: Most promotions follow the waitlist order (first come, first served)
+
+<Info>
+If you're manually promoted by an organizer, you'll still receive an email notification with payment instructions.
+</Info>
+
+### Leaving the Waitlist
+
+You can remove yourself from the waitlist at any time:
+
+<Steps>
+  <Step title="Go to Game Page">
+    Navigate to the game page where you're on the waitlist.
+  </Step>
+  <Step title="Click Leave Waitlist">
+    Click "Leave Waitlist" button (replaces "Join Waitlist" when you're already on it).
+  </Step>
+  <Step title="Confirm">
+    Confirm that you want to leave the waitlist.
+  </Step>
+</Steps>
+
+<Info>
+Leaving the waitlist is immediate and doesn't affect other players' positions. You can rejoin later if you change your mind.
+</Info>
+
+### Waitlist Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Join Early" icon="clock">
+    Join waitlists as soon as possible for better position
+  </Card>
+  <Card title="Check Email" icon="mail">
+    Monitor your email for promotion notifications
+  </Card>
+  <Card title="Act Quickly" icon="zap">
+    Complete payment promptly when promoted
+  </Card>
+  <Card title="Stay Updated" icon="bell">
+    Keep your email notifications enabled
+  </Card>
+</CardGroup>
+
+### Waitlist for Season Games
+
+Season games can also have waitlists:
+
+- **Season Full**: If a season is full, you can join the season waitlist
+- **Individual Games**: Even if you have a season pass, individual games can be full and have waitlists
+- **Priority**: Season members may have priority for individual game waitlists
+
+<Info>
+Season waitlists work similarly to game waitlists - you'll be notified when a season spot becomes available.
+</Info>
+
+## Season Games
+
+Games that are part of a season have special behavior:
+
+- **Before Season Signup Deadline**: Games are locked until you purchase the season
+- **After Season Purchase**: All season games become accessible
+- **Attendance Selection**: After purchasing a season, you can select which games to attend
+- **Default Attendance**: Season members are marked as attending by default
+
+<Info>
+Season games are automatically unlocked once you purchase the season pass, even if the signup deadline hasn't passed.
+</Info>
+
+## Game Reminders
+
+You'll automatically receive email reminders:
+
+- **24 hours before**: "Get ready, you have a game tomorrow!"
+- **Day of game**: "You have a game today!"
+
+These reminders are sent to all players marked as attending.
+
+## Related Workflows
+
+- [Season Participation](/player-workflows/season-participation)
+- [Profile Management](/player-workflows/profile-management)
+

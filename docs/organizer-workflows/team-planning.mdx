@@ -1,0 +1,202 @@
+---
+title: Team Planning
+description: How organizers can create balanced teams for games
+---
+
+# Team Planning
+
+The Team Planner helps organizers create balanced teams for upcoming games based on player levels and positions.
+
+## Accessing the Planner
+
+<Steps>
+  <Step title="Open Organizer Dashboard">
+    From your group page, click the "Organizer Dashboard" button. This opens the dashboard in a new tab at `esooo.co/[group-slug]/organizer`.
+  </Step>
+  <Step title="Navigate to Planner">
+    In the sidebar navigation, click on the "Planner" tab. It's the second tab (located right after "Overview").
+  </Step>
+  <Step title="View Next Game">
+    The planner automatically loads the next upcoming game for your group. If no game is scheduled, you'll see an empty state message.
+  </Step>
+</Steps>
+
+<Warning>
+The planner only works for games that have at least one player who has marked themselves as "attending". Waitlist players and season members who haven't marked attendance are not included.
+</Warning>
+
+## Prerequisites
+
+The planner requires:
+
+- An upcoming game scheduled
+- Players who have marked themselves as attending
+- At least 2 players to create teams
+
+<Warning>
+Only players who have marked "attending" are included in the planner. Waitlist players and season members who haven't marked attendance are excluded.
+</Warning>
+
+## Setting Up Teams
+
+### 1. Configure Number of Teams
+
+<Steps>
+  <Step title="Enter Number">
+    Use the "Number of Teams" input to specify how many teams you want (2-10).
+  </Step>
+  <Step title="Generate Teams">
+    Click "Generate Teams" to automatically create balanced teams.
+  </Step>
+</Steps>
+
+## Team Generation Algorithm
+
+The system uses a sophisticated algorithm to automatically balance teams:
+
+<CardGroup cols={2}>
+  <Card title="Goalie Distribution" icon="shield">
+    **Priority 1**: Distributes goalies first, ensuring each team gets one goalie if possible. If there are fewer goalies than teams, they're distributed to teams with the fewest goalies.
+  </Card>
+  <Card title="Level Balancing" icon="trending-up">
+    **Priority 2**: After goalies, distributes remaining players to balance total team levels. The algorithm finds the team with the lowest total level and assigns the next player there.
+  </Card>
+  <Card title="Position Distribution" icon="users">
+    **Consideration**: While balancing levels, the system considers position distribution to ensure teams have variety in positions (Defender, Mid-field, Forward).
+  </Card>
+  <Card title="Equal Sizing" icon="scales">
+    **Goal**: Creates teams of similar size when possible. If player count doesn't divide evenly, teams are filled sequentially.
+  </Card>
+</CardGroup>
+
+### Algorithm Details
+
+1. **Separate Goalies**: Players with "Goalie" position are separated from others
+2. **Sort by Level**: Both goalies and non-goalies are sorted by level (highest first)
+3. **Distribute Goalies**: Goalies are distributed to teams with fewest goalies
+4. **Distribute Others**: Remaining players are assigned to teams with lowest total level
+5. **Calculate Stats**: After distribution, team statistics (total level, position counts) are calculated
+
+<Info>
+The algorithm ensures fair distribution but you can always manually adjust teams using drag-and-drop if needed.
+</Info>
+
+## Customizing Teams
+
+### Drag and Drop
+
+<Steps>
+  <Step title="Desktop">
+    Click and drag a player card to move them between teams.
+  </Step>
+  <Step title="Mobile">
+    Touch and hold a player card, then drag to another team column.
+  </Step>
+</Steps>
+
+### Visual Feedback
+
+- **Desktop**: Player becomes semi-transparent while dragging
+- **Mobile**: Black border appears around the player container when selected
+
+## Team Management
+
+### Rename Teams
+- Click on the team name input field
+- Enter a new name
+- Changes are saved when you save teams
+
+### Assign Emojis
+- Click the emoji button next to each team name
+- Choose from colored circles (defaults) or sports emojis
+- Emoji appears on the game page when teams are visible
+
+### Team Visibility
+- Toggle the eye icon to show/hide teams on the public game page
+- Hidden teams are only visible to organizers
+- Visible teams are shown to all players on the game page
+
+## Team Statistics
+
+Each team displays:
+
+- **Total Level**: Sum of all player levels in the team
+- **Position Options**: Count of each position (Goalie, Defender, Mid-field, Forward)
+
+<Info>
+Statistics update automatically as you move players between teams.
+</Info>
+
+## Preview Teams
+
+<Steps>
+  <Step title="Click Preview">
+    Click "Show Preview" to see a formatted view of all teams.
+  </Step>
+  <Step title="Review">
+    Check team composition, names, and emojis.
+  </Step>
+  <Step title="Copy as Text">
+    Use "Copy as Text" to copy team lists for sharing.
+  </Step>
+</Steps>
+
+## Saving Teams
+
+<Steps>
+  <Step title="Review Configuration">
+    Ensure teams are balanced and named correctly.
+  </Step>
+  <Step title="Click Save">
+    Click "Save Teams" to persist your team configuration.
+  </Step>
+  <Step title="Confirmation">
+    You'll receive a confirmation message when teams are saved.
+  </Step>
+</Steps>
+
+<Warning>
+Teams are saved per game. Each game has its own team configuration.
+</Warning>
+
+## Mobile Optimizations
+
+On mobile devices:
+
+- **Two Columns**: Players display in a 2-column grid
+- **Compact Info**: Level shows as number only (e.g., "3" instead of "Level 3")
+- **Position Letters**: Positions show as single letters (G, D, M, F)
+- **Icon-Only Buttons**: Preview and Copy buttons show icons only
+
+## Team Display on Game Page
+
+When teams are set to visible:
+
+- Teams appear on the public game page
+- Players can see team composition
+- Team emojis are displayed
+- Teams are sorted by name
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Balance First" icon="scales">
+    Use auto-generation first, then fine-tune manually
+  </Card>
+  <Card title="Check Stats" icon="bar-chart">
+    Review team statistics to ensure balance
+  </Card>
+  <Card title="Preview Before Save" icon="eye">
+    Always preview teams before saving
+  </Card>
+  <Card title="Save Regularly" icon="save">
+    Save your work frequently to avoid losing changes
+  </Card>
+</CardGroup>
+
+## Related Workflows
+
+- [Overview Dashboard](/organizer-workflows/overview-dashboard)
+- [Game Management](/organizer-workflows/game-management)
+- [Member Management](/organizer-workflows/member-management)
+

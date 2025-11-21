@@ -1,0 +1,154 @@
+---
+title: Budget Management
+description: Track expenses and revenue with receipt OCR scanning
+---
+
+# Budget Management
+
+The Budget tab helps organizers track income and expenses for their groups.
+
+## Overview
+
+The budget view displays key financial metrics:
+
+<CardGroup cols={3}>
+  <Card title="Money In" icon="arrow-down">
+    Total revenue from Stripe payments for games and seasons. This is automatically calculated from all completed payments.
+  </Card>
+  <Card title="Money Out" icon="arrow-up">
+    Total expenses recorded by the organizer through receipt uploads or manual entry. Currently includes a placeholder value for testing.
+  </Card>
+  <Card title="Balance" icon="dollar-sign">
+    Net balance calculated as Money In minus Money Out. This shows your group's current financial position.
+  </Card>
+</CardGroup>
+
+### Budget Card Details
+
+The Balance card in the Overview dashboard shows:
+
+- **Cash In**: Total revenue from Stripe
+- **Spend**: Total expenses (currently shows placeholder value of $5,000)
+- **Balance**: Net amount (Cash In - Spend)
+- **Recent Expenses**: Placeholder section for displaying recent expense history
+
+<Info>
+Money In is automatically synced from Stripe payment records. You don't need to manually track revenue.
+</Info>
+
+## Adding Expenses
+
+### Method 1: Upload Receipt (OCR)
+
+<Steps>
+  <Step title="Drag and Drop">
+    Drag a receipt image into the upload area, or click to browse files.
+  </Step>
+  <Step title="OCR Processing">
+    The system automatically extracts amount, date, and merchant name from the receipt.
+  </Step>
+  <Step title="Review & Edit">
+    Review the extracted information and edit if needed.
+  </Step>
+  <Step title="Save Expense">
+    Click "Save Expense" to add it to your budget.
+  </Step>
+</Steps>
+
+### Method 2: Manual Entry
+
+<Steps>
+  <Step title="Click Add Manually">
+    Click "Add Manually" button to open the manual entry form.
+  </Step>
+  <Step title="Enter Details">
+    Fill in amount, description, date, and optionally attach a receipt.
+  </Step>
+  <Step title="Save">
+    Click "Save Expense" to add the expense.
+  </Step>
+</Steps>
+
+## OCR Features
+
+The OCR system uses advanced image recognition to extract:
+
+<CardGroup cols={3}>
+  <Card title="Amount" icon="dollar-sign">
+    Extracts the total cost from receipts using pattern matching for "Total", "Amount Due", "Balance", etc. Handles various formats including commas and decimals.
+  </Card>
+  <Card title="Date" icon="calendar">
+    Finds purchase dates near keywords like "Date", "Purchase Date", or anywhere in the text. Converts to YYYY-MM-DD format.
+  </Card>
+  <Card title="Merchant" icon="store">
+    Identifies the store or vendor name from the receipt text.
+  </Card>
+</CardGroup>
+
+### OCR Providers
+
+Esooo supports two OCR providers (configured via `OCR_PROVIDER` environment variable):
+
+- **Google Cloud Vision API**: High accuracy, requires Google Cloud setup
+- **Taggun API**: Alternative provider, simpler setup
+
+<Info>
+If OCR extraction fails or doesn't find certain fields, you can always manually enter or correct the information before saving.
+</Info>
+
+<Warning>
+OCR accuracy depends on receipt image quality. Clear, well-lit photos produce better results.
+</Warning>
+
+## Managing Expenses
+
+### View Expenses
+
+The expenses table shows:
+
+- **Date**: When the expense occurred
+- **Description**: What the expense was for
+- **Amount**: Cost of the expense
+- **Receipt**: Link to view uploaded receipt (if available)
+
+### Delete Expenses
+
+<Steps>
+  <Step title="Click Delete">
+    Click the delete icon next to an expense.
+  </Step>
+  <Step title="Confirm">
+    Confirm deletion in the modal.
+  </Step>
+</Steps>
+
+<Warning>
+Deleted expenses cannot be recovered. Make sure you want to delete before confirming.
+</Warning>
+
+## Recent Expenses
+
+The overview dashboard shows recent expenses in the Balance card, helping you track recent spending.
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Upload Receipts" icon="upload">
+    Always upload receipts for better record keeping
+  </Card>
+  <Card title="Review OCR" icon="eye">
+    Always review OCR-extracted data for accuracy
+  </Card>
+  <Card title="Add Descriptions" icon="file-text">
+    Add clear descriptions for manual entries
+  </Card>
+  <Card title="Regular Updates" icon="refresh">
+    Update expenses regularly to maintain accurate records
+  </Card>
+</CardGroup>
+
+## Related Workflows
+
+- [Overview Dashboard](/organizer-workflows/overview-dashboard)
+- [Game Management](/organizer-workflows/game-management)
+

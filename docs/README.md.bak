@@ -1,0 +1,72 @@
+# Esooo Documentation
+
+This directory contains documentation for the Esooo soccer app, formatted for Mintlify.
+
+## Structure
+
+```
+docs/
+├── introduction.mdx          # Main introduction page
+├── quickstart.mdx            # Quick start guide
+├── authentication.mdx        # Authentication guide
+├── player-workflows/         # Player-facing workflows
+│   ├── game-participation.mdx
+│   ├── season-participation.mdx
+│   ├── group-engagement.mdx
+│   └── profile-management.mdx
+├── organizer-workflows/      # Organizer-facing workflows
+│   ├── group-management.mdx
+│   ├── game-management.mdx
+│   ├── season-management.mdx
+│   ├── member-management.mdx
+│   ├── team-planning.mdx
+│   ├── budget-management.mdx
+│   └── overview-dashboard.mdx
+├── system-workflows/         # System-level workflows
+│   ├── payment-processing.mdx
+│   ├── email-notifications.mdx
+│   ├── waitlist-management.mdx
+│   └── attendance-management.mdx
+├── api-reference/           # API documentation
+│   ├── authentication.mdx
+│   ├── games.mdx
+│   ├── seasons.mdx
+│   ├── groups.mdx
+│   ├── organizer.mdx
+│   └── payments.mdx
+└── guides/                  # How-to guides
+    ├── creating-games.mdx
+    ├── creating-seasons.mdx
+    ├── managing-teams.mdx
+    └── budget-tracking.mdx
+```
+
+## Setup with Mintlify
+
+1. Install Mintlify CLI:
+   ```bash
+   npm i -g mintlify
+   ```
+
+2. Start the documentation server:
+   ```bash
+   mintlify dev
+   ```
+
+3. Deploy to Mintlify:
+   ```bash
+   mintlify deploy
+   ```
+
+## Adding New Documentation
+
+1. Create a new `.mdx` file in the appropriate directory
+2. Add frontmatter with `title` and `description`
+3. Update `mint.json` navigation to include the new page
+4. Use Mintlify components like `<Card>`, `<Steps>`, `<Info>`, etc.
+
+## Resources
+
+- [Mintlify Documentation](https://mintlify.com/docs)
+- [Mintlify Components](https://mintlify.com/docs/components)
+

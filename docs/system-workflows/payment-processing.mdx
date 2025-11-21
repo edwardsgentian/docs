@@ -1,0 +1,167 @@
+---
+title: Payment Processing
+description: How payments are processed through Stripe
+---
+
+# Payment Processing
+
+Esooo uses Stripe for secure payment processing for games and seasons.
+
+## Payment Flow
+
+<Steps>
+  <Step title="User Initiates Purchase">
+    Player clicks "Join Game" or "Join Season" button on the game/season detail page. The system creates a Stripe Checkout Session with game/season metadata.
+  </Step>
+  <Step title="Stripe Checkout">
+    User is redirected to Stripe's hosted checkout page (`checkout.stripe.com`). This is a secure, PCI-compliant page where the user enters payment details.
+  </Step>
+  <Step title="Payment Processing">
+    Stripe processes the payment securely. The user's card is charged and payment is authorized.
+  </Step>
+  <Step title="Redirect to Success">
+    After successful payment, Stripe redirects the user back to `esooo.co/success` with a session ID.
+  </Step>
+  <Step title="Webhook Notification">
+    Stripe sends a `checkout.session.completed` webhook event to `esooo.co/api/stripe/webhook`. This happens asynchronously and may arrive before or after the redirect.
+  </Step>
+  <Step title="Database Update">
+    The webhook handler:
+    - Verifies the webhook signature for security
+    - Checks for idempotency (prevents duplicate processing)
+    - Creates attendee records (`game_attendees` or `season_attendees`)
+    - Updates game/season capacity
+    - For seasons: automatically adds members to `game_attendees` for all games
+  </Step>
+  <Step title="Email Confirmation">
+    User receives a confirmation email automatically via Resend with game/season details and a confirmation button.
+  </Step>
+</Steps>
+
+<Info>
+The webhook is the source of truth for payment confirmation. The redirect to the success page is for user experience, but the actual database updates happen via webhook.
+</Info>
+
+## Stripe Integration
+
+### Checkout Session Creation
+
+When a user initiates a purchase:
+
+1. System creates a Stripe Checkout Session
+2. Session includes game/season metadata
+3. User is redirected to Stripe's hosted checkout
+4. Payment is processed securely by Stripe
+
+### Webhook Handling
+
+The system listens for Stripe webhook events:
+
+<CardGroup cols={2}>
+  <Card title="checkout.session.completed" icon="check-circle">
+    Payment successful - creates attendee records
+  </Card>
+  <Card title="Idempotency" icon="shield">
+    Prevents duplicate processing if webhook is retried
+  </Card>
+</CardGroup>
+
+## Payment Types
+
+### Individual Games
+
+<Steps>
+  <Step title="Purchase">
+    User pays the game price (e.g., $20) for a single game spot.
+  </Step>
+  <Step title="Record Creation">
+    System creates a `game_attendees` record with:
+    - `player_id`: The purchasing player
+    - `game_id`: The game being joined
+    - `payment_status`: "completed"
+    - `attendance_status`: "attending" (default)
+  </Step>
+  <Step title="Capacity Update">
+    Game's `available_tickets` is decremented, `total_tickets` remains unchanged.
+  </Step>
+</Steps>
+
+### Seasons
+
+<Steps>
+  <Step title="Purchase">
+    User pays the season price (e.g., $150) for access to all games in the season.
+  </Step>
+  <Step title="Season Record">
+    System creates a `season_attendees` record with:
+    - `player_id`: The purchasing player
+    - `season_id`: The season being joined
+    - `payment_status`: "completed"
+    - `attendance_status`: "attending" (default)
+    - `amount_paid`: Season price
+  </Step>
+  <Step title="Game Access">
+    System automatically creates `game_attendees` records for all games in the season, giving the player immediate access to all games.
+  </Step>
+  <Step title="Attendance Selection">
+    User is shown a modal to select which games they'll attend. This creates/updates `season_game_attendance` records.
+  </Step>
+  <Step title="Capacity Update">
+    Season's `season_spots` capacity is updated, and individual game capacities are also updated.
+  </Step>
+</Steps>
+
+<Info>
+Season members are automatically added to all games in the season when they purchase, ensuring they have access even if they haven't explicitly marked attendance for each game.
+</Info>
+
+## Email Confirmations
+
+After successful payment:
+
+- **Game Purchase**: Confirmation email with game details
+- **Season Purchase**: Confirmation email with season details and game selection prompt
+
+<Info>
+Emails are sent automatically via Resend after payment confirmation.
+</Info>
+
+## Security
+
+<CardGroup cols={2}>
+  <Card title="PCI Compliance" icon="shield">
+    Stripe handles all card data - no card information stored
+  </Card>
+  <Card title="Webhook Verification" icon="lock">
+    All webhooks are verified using Stripe signatures
+  </Card>
+  <Card title="HTTPS Only" icon="globe">
+    All payment flows use secure HTTPS connections
+  </Card>
+  <Card title="Idempotency" icon="refresh">
+    Prevents duplicate charges from webhook retries
+  </Card>
+</CardGroup>
+
+## Error Handling
+
+If payment fails:
+
+- User sees error message from Stripe
+- No database records are created
+- User can retry payment
+- No charges are made
+
+## Refunds
+
+Refunds are handled manually through:
+
+- Stripe Dashboard
+- Organizer can process refunds
+- System updates attendee records accordingly
+
+## Related Workflows
+
+- [Game Participation](/player-workflows/game-participation)
+- [Season Participation](/player-workflows/season-participation)
+
