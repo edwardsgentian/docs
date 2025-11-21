@@ -1,28 +1,23 @@
-# Esooo Documentation
+# Mintlify Documentation
 
-This is the documentation repository for Esooo (esooo.co).
+This is a Mintlify documentation project.
 
-## Setup
+## Getting Started
 
-1. Install Mintlify CLI:
+1. Install the Mintlify CLI:
    ```bash
-   npm install -g mint
+   npm i -g mint
    ```
 
 2. Start the development server:
    ```bash
-   NODE_OPTIONS="--max-old-space-size=8192" mintlify dev --port 3001
+   mint dev
    ```
 
-3. View documentation at: http://localhost:3001
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Structure
+## Learn More
 
-- `docs/` - Documentation pages (MDX files)
-- `docs.json` - Mintlify configuration
-- `.mintlifyignore` - Files to ignore during build
-- `public/` - Static assets (logos, favicons, etc.)
+- [Mintlify Documentation](https://mintlify.com/docs)
+- [Mintlify Blog](https://mintlify.com/blog)
 
-## Deployment
-
-This repository can be connected to Mintlify for automatic deployments when changes are pushed to the main branch.

@@ -1,87 +1,21 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
+  "$schema": "https://mintlify.com/schema.json",
   "theme": "mint",
-  "name": "Esooo",
+  "name": "Mintlify",
   "colors": {
-    "primary": "#000000",
-    "light": "#000000",
-    "dark": "#ffffff"
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373"
   },
-  "favicon": "/favicon.ico",
-  "navigation": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "authentication"
-      ]
-    },
-    {
-      "group": "Player Workflows",
-      "pages": [
-        "player-workflows/game-participation",
-        "player-workflows/season-participation",
-        "player-workflows/profile-management"
-      ]
-    },
-    {
-      "group": "Organizer Workflows",
-      "pages": [
-        "organizer-workflows/overview-dashboard",
-        "organizer-workflows/game-management",
-        "organizer-workflows/team-planning",
-        "organizer-workflows/member-management",
-        "organizer-workflows/budget-management"
-      ]
-    },
-    {
-      "group": "System & Integration",
-      "pages": [
-        "system-workflows/payment-processing"
-      ]
-    }
-  ],
-  "global": {
-    "anchors": [
+  "navigation": {
+    "groups": [
       {
-        "anchor": "Documentation",
-        "href": "https://docs.esooo.co",
-        "icon": "book-open-cover"
-      },
-      {
-        "anchor": "GitHub",
-        "href": "https://github.com/edwardsgentian/soccer-app",
-        "icon": "github"
+        "group": "Get Started",
+        "pages": [
+          "introduction",
+          "quickstart"
+        ]
       }
     ]
-  },
-  "logo": {
-    "light": "/logo/esooo_logo_full.svg",
-    "dark": "/logo/esooo_logo_full.svg"
-  },
-  "api": {
-    "mdx": {
-      "server": "https://esooo.co/api"
-    }
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@esooo.co"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Open App",
-      "href": "https://esooo.co"
-    }
-  },
-  "footer": {
-    "socials": {
-      "twitter": "https://twitter.com/esooo",
-      "github": "https://github.com/edwardsgentian/soccer-app"
-    }
   }
 }

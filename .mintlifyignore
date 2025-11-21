@@ -1,35 +1,4 @@
-# Ignore everything except docs directory and config files
-*
-!docs/
-!docs.json
-!favicon.ico
-!.mintlifyignore
-
-# Explicitly ignore all non-docs directories
-scripts/
-src/
-node_modules/
-migrations/
-public/
-.next/
-.mintlify/
-*.js
-*.ts
-*.tsx
-*.json
-!docs.json
-*.md
-!docs/**/*.mdx
-*.sql
-*.config.*
-package.json
-package-lock.json
-yarn.lock
-tsconfig.json
-next.config.*
-tailwind.config.*
-postcss.config.*
-eslint.config.*
-vercel.json
-.env*
+node_modules
+.git
+.mint
 
