@@ -26,5 +26,3 @@ This is the documentation repository for Esooo (esooo.co).
 ## Deployment
 
 This repository can be connected to Mintlify for automatic deployments when changes are pushed to the main branch.
-
-
