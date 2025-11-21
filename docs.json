@@ -8,48 +8,40 @@
     "dark": "#ffffff"
   },
   "favicon": "/favicon.ico",
-  "navigation": {
-    "anchors": [
-      {
-        "anchor": "Documentation",
-        "icon": "book-open",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "authentication"
-            ]
-          },
-          {
-            "group": "Player Workflows",
-            "pages": [
-              "player-workflows/game-participation",
-              "player-workflows/season-participation",
-              "player-workflows/profile-management"
-            ]
-          },
-          {
-            "group": "Organizer Workflows",
-            "pages": [
-              "organizer-workflows/overview-dashboard",
-              "organizer-workflows/game-management",
-              "organizer-workflows/team-planning",
-              "organizer-workflows/member-management",
-              "organizer-workflows/budget-management"
-            ]
-          },
-          {
-            "group": "System & Integration",
-            "pages": [
-              "system-workflows/payment-processing"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "authentication"
+      ]
+    },
+    {
+      "group": "Player Workflows",
+      "pages": [
+        "player-workflows/game-participation",
+        "player-workflows/season-participation",
+        "player-workflows/profile-management"
+      ]
+    },
+    {
+      "group": "Organizer Workflows",
+      "pages": [
+        "organizer-workflows/overview-dashboard",
+        "organizer-workflows/game-management",
+        "organizer-workflows/team-planning",
+        "organizer-workflows/member-management",
+        "organizer-workflows/budget-management"
+      ]
+    },
+    {
+      "group": "System & Integration",
+      "pages": [
+        "system-workflows/payment-processing"
+      ]
+    }
+  ],
   "global": {
     "anchors": [
       {
