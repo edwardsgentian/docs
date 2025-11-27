@@ -1,21 +1,142 @@
 {
-  "$schema": "https://mintlify.com/schema.json",
-  "theme": "mint",
-  "name": "Mintlify",
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Esooo",
+  "description": "Everything you need to know to get started with your group",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373"
+    "primary": "#000000",
+    "light": "#F8FAFC",
+    "dark": "#0F172A"
   },
   "navigation": {
-    "groups": [
+    "dropdowns": [
       {
-        "group": "Get Started",
+        "dropdown": "Documentation",
+        "icon": "book",
+        "description": "How to use the Example Co. product",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "introduction",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Customization",
+            "pages": [
+              "settings",
+              "users",
+              "features"
+            ]
+          },
+          {
+            "group": "Billing",
+            "pages": [
+              "billing/overview",
+              "billing/payments",
+              "billing/subscriptions"
+            ]
+          }
+        ]
+      },
+      {
+        "dropdown": "Changelog",
+        "icon": "history",
+        "description": "Updates and changes",
         "pages": [
-          "introduction",
-          "quickstart"
+          "changelog"
         ]
       }
     ]
+  },
+  "logo": {
+    "light": "logo/light.svg",
+    "dark": "logo/dark.svg",
+    "href": "https://example.com"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Community",
+        "href": "https://example.com/community"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://example.com/start"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/example",
+      "linkedin": "https://www.linkedin.com/company/example",
+      "github": "https://github.com/example",
+      "slack": "https://example.com/community"
+    },
+    "links": [
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Customers",
+            "href": "https://example.com/customers"
+          },
+          {
+            "label": "Enterprise",
+            "href": "https://example.com/enterprise"
+          },
+          {
+            "label": "Request Preview",
+            "href": "https://example.com/preview"
+          }
+        ]
+      },
+      {
+        "header": "Company",
+        "items": [
+          {
+            "label": "Careers",
+            "href": "https://example.com/careers"
+          },
+          {
+            "label": "Blog",
+            "href": "https://example.com/blog"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "https://example.com/legal/privacy"
+          }
+        ]
+      }
+    ]
+  },
+  "integrations": {
+    "ga4": {
+      "measurementId": "G-XXXXXXXXXX"
+    },
+    "telemetry": {
+      "enabled": true
+    },
+    "cookies": {
+      "key": "example_cookie_key",
+      "value": "example_cookie_value"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
+  },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "I can't be found",
+      "description": "What ever **happened** to this _page_?"
+    }
   }
 }
