@@ -4,7 +4,7 @@
   "name": "Esooo",
   "description": "Everything you need to know to get started with your group",
   "colors": {
-    "primary": "#00000",
+    "primary": "#000000",
     "light": "#F8FAFC",
     "dark": "#0F172A"
   },
@@ -51,7 +51,7 @@
     ]
   },
   "logo": {
-    "light": "/logo-light.svg",
+    "light": "/light.svg",
     "dark": "/logo-dark.svg",
     "href": "https://example.com"
   },
