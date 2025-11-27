@@ -1,10 +1,10 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "Example Co.",
-  "description": "Example Co. is a company that provides example content and placeholder text.",
+  "name": "Esooo",
+  "description": "Everything you need to know to get started with your group",
   "colors": {
-    "primary": "#3B82F6",
+    "primary": "#00000",
     "light": "#F8FAFC",
     "dark": "#0F172A"
   },
